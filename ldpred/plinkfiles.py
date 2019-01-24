@@ -60,7 +60,7 @@ def parse_plink_snps(genotype_file, snp_indices):
     plinkf.close()
     assert snp_i == len(raw_snps), 'Parsing SNPs from plink file failed.'
     num_indivs = len(raw_snps[0])
-    freqs = sp.sum(raw_snps, 1, dtype='float32') / (2 * float(num_indivs))
+    freqs = sp.sum(raw_snps, 1, dtype='float16') / (2 * float(num_indivs))
     return raw_snps, freqs
 
 

@@ -198,7 +198,7 @@ def ld_pruning(data_file=None, ld_radius = None, out_file_prefix=None, p_thres=N
             snp_means.shape = (len(snp_means),1)   
             snp_stds.shape = (len(snp_means),1)   
             #Normalize SNPs..
-            norm_ref_snps = sp.array((raw_snps - snp_means)/snp_stds,dtype='float32') 
+            norm_ref_snps = sp.array((raw_snps - snp_means)/snp_stds,dtype='float16') 
             ld_table = ld.calc_ld_table(norm_ref_snps, max_ld_dist=ld_radius, min_r2=max_r2, verbose=verbose)
             
             updated_raw_betas, pruning_vector = smart_ld_pruning(raw_betas, ld_table, pvalues=pvalues, max_ld=max_r2, verbose=verbose)

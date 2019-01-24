@@ -289,7 +289,7 @@ If they are a subset of the validation data set, then we suggest recalculate LDp
             snp_stds.shape = (n_snps,1)   
             
             # Normalize SNPs..
-            snps = sp.array((raw_snps - snp_means)/snp_stds,dtype='float32')
+            snps = sp.array((raw_snps - snp_means)/snp_stds,dtype='float16')
             ret_dict = ld.get_LDpred_ld_tables(snps, ld_radius=p_dict['ld_radius'], ld_window_size=2*p_dict['ld_radius'])
             chrom_ld_dict[chrom_str] = ret_dict['ld_dict']
             chrom_ref_ld_mats[chrom_str] = ret_dict['ref_ld_matrices']

@@ -227,8 +227,8 @@ def _parse_decode_genotypes_(decode_file, sids, pns, ocg):
         if i % 1000 == 0:
             print "Reached %d'th SNP" % i
         probs = ih5f["Probabilities2"][m_i, pn_sort_indices]
-        pat_snp = sp.array(map(lambda x: x[0], probs), 'float32')
-        mat_snp = sp.array(map(lambda x: x[1], probs), 'float32')
+        pat_snp = sp.array(map(lambda x: x[0], probs), 'float16')
+        mat_snp = sp.array(map(lambda x: x[1], probs), 'float16')
         snp = pat_snp + mat_snp
         ok_filter = (pat_snp >= 0) * (mat_snp >= 0)
         if not sp.all(ok_filter):
